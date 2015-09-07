@@ -57,4 +57,29 @@ functionalStateMachine({
 })
 ```
 
+To use this with Node, Browserify, or Webpack:
+
+```javascript
+var functionalStateMachine = require('@evanhahn/functional-state-machine');
+
+functionalStateMachine({
+  states: myStates,
+  initial: 'full',
+  apply: ['timePasses']
+})
+```
+
+To use in the browser:
+
+```html
+<script src="functionalstatemachine.js"></script>
+<script>
+functionalStateMachine({
+  states: myStates,
+  initial: 'hungry',
+  apply: ['eatBurrito']
+})
+</script>
+```
+
 Enjoy!
