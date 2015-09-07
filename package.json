@@ -1,0 +1,28 @@
+{
+  "name": "@evanhahn/functional-state-machine",
+  "version": "0.0.0",
+  "description": "very simple state machine",
+  "main": "functionalstatemachine.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvanHahn/functional-state-machine.git"
+  },
+  "keywords": [
+    "state",
+    "machine",
+    "fsm"
+  ],
+  "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EvanHahn/functional-state-machine/issues"
+  },
+  "homepage": "https://github.com/EvanHahn/functional-state-machine#readme",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.0"
+  }
+}
