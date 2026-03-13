@@ -1,5 +1,5 @@
 const machine = require(".");
-const expect = require("expect.js");
+const assert = require("node:assert/strict");
 const test = require("node:test");
 
 const states = {
@@ -18,73 +18,80 @@ const states = {
 };
 
 test("can do no transition", function () {
-  expect(
+  assert.strictEqual(
     machine({
       states,
       initial: "a",
       apply: [],
     }),
-  ).to.equal("a");
+    "a",
+  );
 
-  expect(
+  assert.strictEqual(
     machine({
       states,
       initial: "b",
       apply: [],
     }),
-  ).to.equal("b");
+    "b",
+  );
 
-  expect(
+  assert.strictEqual(
     machine({
       states,
       initial: "c",
       apply: [],
     }),
-  ).to.equal("c");
+    "c",
+  );
 });
 
 test("transitions from a to a", function () {
-  expect(
+  assert.strictEqual(
     machine({
       states,
       initial: "a",
       apply: ["circleBack"],
     }),
-  ).to.equal("a");
+    "a",
+  );
 });
 
 test("transitions from a to b", function () {
-  expect(
+  assert.strictEqual(
     machine({
       states,
       initial: "a",
       apply: ["goToB"],
     }),
-  ).to.equal("b");
+    "b",
+  );
 });
 
 test("transitions from a to b and back", function () {
-  expect(
+  assert.strictEqual(
     machine({
       states,
       initial: "a",
       apply: ["goToB", "goToA"],
     }),
-  ).to.equal("a");
+    "a",
+  );
 });
 
 test("transitions from a to b to c to a", function () {
-  expect(
+  assert.strictEqual(
     machine({
       states,
       initial: "a",
       apply: ["goToB", "goToC", "goToA"],
     }),
-  ).to.equal("a");
+    "a",
+  );
 });
 
 test("errors out with a bad initial state", function () {
-  expect(
+  assert.throws(
     function () {
       machine({
         states,
@@ -92,11 +99,12 @@ test("errors out with a bad initial state", function () {
         apply: [],
       });
     }.bind(this),
-  ).to.throwException("foo is an invalid state");
+    { message: "foo is an invalid state" },
+  );
 });
 
 test("errors out when transitioning to a bad state", function () {
-  expect(
+  assert.throws(
     function () {
       machine({
         states,
@@ -104,5 +112,6 @@ test("errors out when transitioning to a bad state", function () {
         apply: ["goToC", "goToTheEther", "goToA"],
       });
     }.bind(this),
-  ).to.throwException("nowhere is an invalid state");
+    { message: "nowhere is an invalid state" },
+  );
 });
