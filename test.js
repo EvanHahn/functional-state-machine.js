@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { functionalStateMachine as machine } from "./functionalstatemachine.js";
+import { functionalStateMachine } from "./functionalstatemachine.js";
 
 const states = {
   a: {
@@ -19,7 +19,7 @@ const states = {
 
 test("can do no transition", () => {
   assert.strictEqual(
-    machine({
+    functionalStateMachine({
       states,
       initial: "a",
       apply: [],
@@ -28,7 +28,7 @@ test("can do no transition", () => {
   );
 
   assert.strictEqual(
-    machine({
+    functionalStateMachine({
       states,
       initial: "b",
       apply: [],
@@ -37,7 +37,7 @@ test("can do no transition", () => {
   );
 
   assert.strictEqual(
-    machine({
+    functionalStateMachine({
       states,
       initial: "c",
       apply: [],
@@ -48,7 +48,7 @@ test("can do no transition", () => {
 
 test("transitions from a to a", () => {
   assert.strictEqual(
-    machine({
+    functionalStateMachine({
       states,
       initial: "a",
       apply: ["circleBack"],
@@ -59,7 +59,7 @@ test("transitions from a to a", () => {
 
 test("transitions from a to b", () => {
   assert.strictEqual(
-    machine({
+    functionalStateMachine({
       states,
       initial: "a",
       apply: ["goToB"],
@@ -70,7 +70,7 @@ test("transitions from a to b", () => {
 
 test("transitions from a to b and back", () => {
   assert.strictEqual(
-    machine({
+    functionalStateMachine({
       states,
       initial: "a",
       apply: ["goToB", "goToA"],
@@ -81,7 +81,7 @@ test("transitions from a to b and back", () => {
 
 test("transitions from a to b to c to a", () => {
   assert.strictEqual(
-    machine({
+    functionalStateMachine({
       states,
       initial: "a",
       apply: ["goToB", "goToC", "goToA"],
@@ -93,7 +93,7 @@ test("transitions from a to b to c to a", () => {
 test("errors out with a bad initial state", () => {
   assert.throws(
     () => {
-      machine({
+      functionalStateMachine({
         states,
         initial: "foo",
         apply: [],
@@ -106,7 +106,7 @@ test("errors out with a bad initial state", () => {
 test("errors out when transitioning to a bad state", () => {
   assert.throws(
     () => {
-      machine({
+      functionalStateMachine({
         states,
         initial: "b",
         apply: ["goToC", "goToTheEther", "goToA"],
