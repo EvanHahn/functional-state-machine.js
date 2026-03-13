@@ -1,18 +1,17 @@
-export function functionalStateMachine(options) {
-  var states = options.states;
-  var currentState = options.initial;
-  var toApply = options.apply;
+const getOwn = (obj, key) => (Object.hasOwn(obj, key) ? obj[key] : undefined);
 
-  if (!states[currentState]) {
-    throw new Error(currentState + " is an invalid state");
+const assertValidState = (states, state) => {
+  if (getOwn(states, state) === undefined) {
+    throw new Error(`${state} is an invalid state`);
   }
+};
 
-  for (var i = 0; i < toApply.length; i++) {
-    currentState = states[currentState][toApply[i]];
-    if (!states[currentState]) {
-      throw new Error(currentState + " is an invalid state");
-    }
-  }
-
-  return currentState;
+export function functionalStateMachine({ states, initial, apply }) {
+  assertValidState(states, initial);
+  return apply.reduce((currentState, action) => {
+    const transitions = getOwn(states, currentState);
+    const nextState = getOwn(transitions, action);
+    assertValidState(states, nextState);
+    return nextState;
+  }, initial);
 }

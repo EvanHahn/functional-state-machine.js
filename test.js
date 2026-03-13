@@ -101,6 +101,16 @@ test("errors out with a bad initial state", () => {
     },
     { message: "foo is an invalid state" },
   );
+  assert.throws(
+    () => {
+      functionalStateMachine({
+        states,
+        initial: "constructor",
+        apply: [],
+      });
+    },
+    { message: "constructor is an invalid state" },
+  );
 });
 
 test("errors out when transitioning to a bad state", () => {
