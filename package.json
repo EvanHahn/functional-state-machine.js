@@ -22,12 +22,11 @@
     "fmt": "oxfmt",
     "test:fmt": "oxfmt --check",
     "test:lint": "oxlint",
-    "test:unit": "mocha",
+    "test:unit": "node --test",
     "test": "run-p --aggregate-output --print-label test:*"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "mocha": "^2.3.0",
     "npm-run-all2": "^8.0.4",
     "oxfmt": "^0.40.0",
     "oxlint": "^1.55.0"
