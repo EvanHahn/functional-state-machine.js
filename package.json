@@ -2,27 +2,32 @@
   "name": "@evanhahn/functional-state-machine",
   "version": "0.1.0",
   "description": "very simple state machine",
-  "main": "functionalstatemachine.js",
-  "scripts": {
-    "test": "mocha"
+  "keywords": [
+    "fsm",
+    "machine",
+    "state"
+  ],
+  "homepage": "https://github.com/EvanHahn/functional-state-machine#readme",
+  "bugs": {
+    "url": "https://github.com/EvanHahn/functional-state-machine/issues"
   },
+  "license": "MIT",
+  "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EvanHahn/functional-state-machine.git"
   },
-  "keywords": [
-    "state",
-    "machine",
-    "fsm"
-  ],
-  "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EvanHahn/functional-state-machine/issues"
+  "main": "functionalstatemachine.js",
+  "scripts": {
+    "fmt": "oxfmt",
+    "test:fmt": "oxfmt --check",
+    "test:unit": "mocha",
+    "test": "run-p --aggregate-output --print-label test:*"
   },
-  "homepage": "https://github.com/EvanHahn/functional-state-machine#readme",
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "mocha": "^2.3.0"
+    "mocha": "^2.3.0",
+    "npm-run-all2": "^8.0.4",
+    "oxfmt": "^0.40.0"
   }
 }

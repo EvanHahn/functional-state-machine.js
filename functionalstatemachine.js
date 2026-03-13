@@ -4,19 +4,19 @@ function functionalStateMachine(options) {
   var toApply = options.apply;
 
   if (!states[currentState]) {
-    throw new Error(currentState + ' is an invalid state');
+    throw new Error(currentState + " is an invalid state");
   }
 
   for (var i = 0; i < toApply.length; i++) {
     currentState = states[currentState][toApply[i]];
     if (!states[currentState]) {
-      throw new Error(currentState + ' is an invalid state');
+      throw new Error(currentState + " is an invalid state");
     }
   }
 
   return currentState;
 }
 
-if (typeof module !== 'undefined') {
+if (typeof module !== "undefined") {
   module.exports = functionalStateMachine;
 }
