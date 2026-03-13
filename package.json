@@ -7,15 +7,15 @@
     "machine",
     "state"
   ],
-  "homepage": "https://github.com/EvanHahn/functional-state-machine#readme",
+  "homepage": "https://codeberg.org/EvanHahn/functional-state-machine#readme",
   "bugs": {
-    "url": "https://github.com/EvanHahn/functional-state-machine/issues"
+    "url": "https://codeberg.org/EvanHahn/functional-state-machine/issues"
   },
   "license": "MIT",
   "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EvanHahn/functional-state-machine.git"
+    "url": "https://codeberg.org/EvanHahn/functional-state-machine.git"
   },
   "type": "module",
   "main": "functionalstatemachine.js",
