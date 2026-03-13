@@ -1,6 +1,6 @@
-const machine = require(".");
-const assert = require("node:assert/strict");
-const test = require("node:test");
+import assert from "node:assert/strict";
+import test from "node:test";
+import { functionalStateMachine as machine } from "./functionalstatemachine.js";
 
 const states = {
   a: {

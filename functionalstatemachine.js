@@ -1,4 +1,4 @@
-function functionalStateMachine(options) {
+export function functionalStateMachine(options) {
   var states = options.states;
   var currentState = options.initial;
   var toApply = options.apply;
@@ -15,8 +15,4 @@ function functionalStateMachine(options) {
   }
 
   return currentState;
-}
-
-if (typeof module !== "undefined") {
-  module.exports = functionalStateMachine;
 }

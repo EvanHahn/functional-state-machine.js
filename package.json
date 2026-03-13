@@ -17,6 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/EvanHahn/functional-state-machine.git"
   },
+  "type": "module",
   "main": "functionalstatemachine.js",
   "scripts": {
     "fmt": "oxfmt",
