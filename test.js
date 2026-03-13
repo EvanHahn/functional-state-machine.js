@@ -17,7 +17,7 @@ const states = {
   },
 };
 
-test("can do no transition", function () {
+test("can do no transition", () => {
   assert.strictEqual(
     machine({
       states,
@@ -46,7 +46,7 @@ test("can do no transition", function () {
   );
 });
 
-test("transitions from a to a", function () {
+test("transitions from a to a", () => {
   assert.strictEqual(
     machine({
       states,
@@ -57,7 +57,7 @@ test("transitions from a to a", function () {
   );
 });
 
-test("transitions from a to b", function () {
+test("transitions from a to b", () => {
   assert.strictEqual(
     machine({
       states,
@@ -68,7 +68,7 @@ test("transitions from a to b", function () {
   );
 });
 
-test("transitions from a to b and back", function () {
+test("transitions from a to b and back", () => {
   assert.strictEqual(
     machine({
       states,
@@ -79,7 +79,7 @@ test("transitions from a to b and back", function () {
   );
 });
 
-test("transitions from a to b to c to a", function () {
+test("transitions from a to b to c to a", () => {
   assert.strictEqual(
     machine({
       states,
@@ -90,28 +90,28 @@ test("transitions from a to b to c to a", function () {
   );
 });
 
-test("errors out with a bad initial state", function () {
+test("errors out with a bad initial state", () => {
   assert.throws(
-    function () {
+    () => {
       machine({
         states,
         initial: "foo",
         apply: [],
       });
-    }.bind(this),
+    },
     { message: "foo is an invalid state" },
   );
 });
 
-test("errors out when transitioning to a bad state", function () {
+test("errors out when transitioning to a bad state", () => {
   assert.throws(
-    function () {
+    () => {
       machine({
         states,
         initial: "b",
         apply: ["goToC", "goToTheEther", "goToA"],
       });
-    }.bind(this),
+    },
     { message: "nowhere is an invalid state" },
   );
 });
