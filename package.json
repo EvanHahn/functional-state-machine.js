@@ -1,6 +1,6 @@
 {
   "name": "@evanhahn/functional-state-machine",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "very simple state machine",
   "keywords": [
     "fsm",
